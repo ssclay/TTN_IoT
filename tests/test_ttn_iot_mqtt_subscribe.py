@@ -1,14 +1,14 @@
 from nio.block.terminals import DEFAULT_TERMINAL
 from nio.signal.base import Signal
 from nio.testing.block_test_case import NIOBlockTestCase
-from ..TTN_IoT_block import TtnIot
+from ..ttn_iot_mqtt_subscribe_block import TTNIoTMQTTSubscribe
 
 
 class TestTtnIot(NIOBlockTestCase):
 
     def test_process_signals(self):
         """Signals pass through block unmodified."""
-        blk = TtnIot()
+        blk = TTNIoTMQTTSubscribe()
         self.configure_block(blk, {})
         blk.start()
         blk.process_signals([Signal({"hello": "nio"})])
